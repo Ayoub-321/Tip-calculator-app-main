@@ -1,0 +1,258 @@
+:root {
+    --color-strong-cyan: hsl(172, 67%, 45%);
+    --color-very-dark-cyan: hsl(183, 100%, 15%);
+    --color-dark-grayish-cyan: hsl(186, 14%, 43%);
+    --color-dark-grayish-cyan-alt: hsl(184, 14%, 56%);
+    --color-light-grayish-cyan: hsl(185, 41%, 84%);
+    --color-light-grayish-cyan-alt: hsl(189, 41%, 97%);
+    --color-active-cyan-light: hsl(172, 58%, 78%);
+    --color-active-cyan-brown: hsl(16, 32%, 57%);
+    --color-shadow-effect: hsla(183, 100%, 15%, 0.1);
+  }
+  
+  html {
+    box-sizing: border-box;
+    background-color: var(--color-light-grayish-cyan);
+    color: var(--color-very-dark-cyan);
+    font: 400 16px 'Space Mono', sans-serif;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100%;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Logo */
+  
+  .logo {
+    display: block;
+    width: clamp(5rem, 12vw, 6rem);
+    margin: 2.6rem;
+  }
+  
+  /* Calculator */
+  
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 1.6rem;
+    max-width: 56rem;
+  }
+  
+  .calculator > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .calculator-spacer {
+    margin-bottom: 1.2rem;
+  }
+  
+  /* Labels, Inputs & Buttons */
+  
+  label {
+    display: block; /* This allows padding-bottom to work */
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-dark-grayish-cyan);
+    padding-bottom: 0.4em;
+  }
+  
+  input, button {
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.2em 0.7em;
+    width: 100%;
+  }
+  
+  input {
+    background-color: var(--color-light-grayish-cyan-alt);
+    color: var(--color-very-dark-cyan);
+    text-align: right;
+  }
+  input:focus {
+    outline: 2px solid var(--color-strong-cyan);
+  }
+  input:invalid {
+    outline: 2px solid var(--color-active-cyan-brown);
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  button {
+    background-color: var(--color-very-dark-cyan);
+    color: white;
+    cursor: pointer;
+  }
+  button:hover:enabled, .button-selected {
+    background-color: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+  }
+  
+  .button-reset {
+    background-color: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 0.4em;
+  }
+  .button-reset:hover:enabled {
+    background-color: var(--color-active-cyan-light);
+  }
+  .button-reset:disabled {
+    background-color: hsl(184, 49%, 28%);
+    color: hsl(184, 49%, 24%);
+    cursor: not-allowed;
+  }
+  
+  .tip-amounts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em;
+  }
+  
+  .error-container {
+    position: relative;
+  }
+  
+  .invalid-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-active-cyan-brown);
+  }
+  
+  /* Input Icons */
+  
+  .bill-amount {
+    background-image: url('../images/icon-dollar.svg');
+    background-repeat: no-repeat;
+    background-position: left 0.7em center;
+  }
+  
+  .number-people {
+    background-image: url('../images/icon-person.svg');
+    background-repeat: no-repeat;
+    background-position: left 0.7em center;
+  }
+  
+  /* Calculated Amounts Group */
+  
+  .calculator-group {
+    background-color: var(--color-very-dark-cyan);
+    color: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .tbl-amounts {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.3em;
+    border-collapse: collapse;
+  }
+  
+  .tbl-amounts td {
+    vertical-align: middle;
+    /* Has to be both top & bottom padding or
+       vertical align won't work as expected */
+    padding: 0.6em 0;
+  }
+  
+  .tbl-amounts-label {
+    width: 8em;
+  }
+  
+  .per-person {
+    color: var(--color-dark-grayish-cyan-alt);
+    font-size: 0.9em;
+  }
+  
+  .calculated-amount {
+    font-size: 2em;
+    color: var(--color-strong-cyan);
+    text-align: right;
+  }
+  
+  /* Attribution */
+  
+  .attribution {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5em;
+  }
+  
+  .attribution a {
+    color: var(--color-strong-cyan);
+  }
+  
+  /* Media Queries */
+  
+  @media screen and (min-width: 48rem) {
+    .calculator {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem 2.6rem;
+      margin: 0 1rem;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 26px 22px var(--color-shadow-effect);
+    }
+  
+    .calculator > div {
+      flex: 1;
+    }
+  
+    .calculator-group {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .tbl-amounts {
+      font-size: 1rem;
+    }
+  
+    .calculated-amount {
+      font-size: 2.9em;
+    }
+  
+    .attribution {
+      flex: 100%;
+      margin-top: 0;
+    }
+  
+    .button-reset {
+      font-size: 1.3rem;
+    }
+  }

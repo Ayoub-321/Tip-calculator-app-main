@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <img src="images/logo.svg" alt="splitter logo" class="logo">
+
+    <div class="calculator">
+      <div>
+        <div class="calculator-spacer">
+          <label for="input-bill-amount">Bill</label>
+          <input type="number" id="input-bill-amount" name="bill-amount" class="bill-amount" placeholder="0" value="" min="0.0" autofocus>
+        </div>
+
+        <div class="calculator-spacer">
+          <label>Select Tip %</label>
+          <div id="div-tip-amounts" class="tip-amounts">
+            <button id="btn-tip-5" value="5">5%</button>
+            <button id="btn-tip-10" value="10">10%</button>
+            <button id="btn-tip-15" value="15">15%</button>
+            <button id="btn-tip-25" value="25">25%</button>
+            <button id="btn-tip-50" value="50">50%</button>
+            <input type="number" id="input-tip-custom" name="tip-custom" class="tip-custom" placeholder="Custom" min="0" max="100">
+          </div>
+        </div>
+
+        <div class="calculator-spacer error-container">
+          <label for="input-number-people">Number of People</label>
+          <div id="error-msg-number-people" class="invalid-message">Can't be zero</div>
+          <!-- Default of 1 person is assumed. More for you! -->
+          <input type="number" id="input-number-people" name="number-people" class="number-people" placeholder="1" min="1">
+        </div>
+      </div>
+
+      <div class="calculator-group">
+        <table class="tbl-amounts calculator-spacer">
+          <tr>
+            <td class="tbl-amounts-label">
+              Tip Amount<br>
+              <span class="per-person">/ person</span>
+            </td>
+            <td id="text-tip-per-person" class="calculated-amount">$0.00</td>
+          </tr>
+          <tr>
+            <td class="tbl-amounts-label">
+              Total<br>
+              <span class="per-person">/ person</span>
+            </td>
+            <td id="text-amount-per-person" class="calculated-amount">$0.00</td>
+          </tr>
+        </table>
+
+        <button id="button-reset" class="button-reset" disabled>Reset</button>
+      </div>
+
+      <small class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://github.com/Ayoub-321">AISSOU Ayoub</a>.
+      </small>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
